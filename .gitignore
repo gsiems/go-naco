@@ -1,0 +1,3 @@
+git_ignore
+*.out
+coverage.html
