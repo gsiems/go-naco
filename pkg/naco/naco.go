@@ -8,7 +8,7 @@ package naco
 
 import (
 	"strings"
-
+	//
 	"golang.org/x/text/unicode/norm"
 )
 
@@ -17,12 +17,12 @@ http://www.loc.gov/aba/pcc/naco/normrule-2.html
 http://memory.loc.gov/diglib/codetables/45.html
 */
 
+const blankChar = " "
+const deleteChar = ""
+
 // Normalize implements the normalization rules according to Appendix A
 // of the Authority File Comparison Rules web-page.
 func Normalize(s string, keepFirstComma bool) (ns string) {
-
-	const blankChar = " "
-	const deleteChar = ""
 
 	var tr = map[string]string{
 		"⁰": "0",  // SUPERSCRIPT 0
@@ -167,7 +167,8 @@ func Normalize(s string, keepFirstComma bool) (ns string) {
 			continue
 		}
 
-		// Commas: Comma or blank-- The first comma in $a is retained; all other converted to blank
+		// Commas: Comma or blank-- The first comma in $a is retained;
+		// all other converted to blank
 		if cp == "," {
 			if keepFirstComma && !commaSeen {
 				nc = append(nc, cp)
