@@ -12,13 +12,13 @@ func TestOne(t *testing.T) {
 		want   string
 	}{
 		{"just    a    whole lot of, like,    spaces.   you betcha, ...!",
-            false,
+			false,
 			"JUST A WHOLE LOT OF LIKE SPACES YOU BETCHA"},
 		{"test, comma, one",
-            true,
+			true,
 			"TEST, COMMA ONE"},
 		{"test comma two,",
-            true,
+			true,
 			"TEST COMMA TWO"},
 		{" 010910|1992||||||||||||||||||||||||||||d",
 			false,
